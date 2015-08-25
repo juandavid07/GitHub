@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="668cdb65-462d-4a9a-a560-dbe6c8c890c8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="b7c9d7ef-a8b5-46c0-b8b8-76d17154e621"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `tbl_clientes`]]>
+	</queryString>
+	<field name="IdCln" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TipoCln" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NombreCln" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TelefonoCln" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DireccionCln" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NIT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="597" height="65" forecolor="#006699" backcolor="#006699" uuid="296e91c2-5400-424a-9db4-7d3d0ac3e476"/>
+				<staticText>
+					<reportElement style="Title" x="231" y="0" width="346" height="65" uuid="e667b26c-5c21-4f23-b9e3-ba6121151f4e"/>
+					<textElement textAlignment="Right">
+						<font size="48" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Lista de Clientes]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<frame>
+				<reportElement x="227" y="0" width="328" height="20" uuid="5650c395-d8b1-4a31-9cab-2589757ddb60"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="19" y="0" width="66" height="20" forecolor="#000000" uuid="78fa0cc3-9b4b-4344-9970-acac8df0605e"/>
+					<textElement>
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Teléfono]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="97" y="0" width="91" height="20" forecolor="#000000" uuid="60591317-640f-4a87-a928-ca8207eadfe3"/>
+					<textElement>
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Dirección]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="244" y="0" width="54" height="20" forecolor="#000000" uuid="0794318f-a22d-4210-87af-6692fe4103e6"/>
+					<textElement>
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[NIT]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="2" y="0" width="111" height="20" forecolor="#000000" uuid="6b651636-1b5b-44b9-b78b-e332d64b4707"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Tipo de Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="125" y="0" width="86" height="20" forecolor="#000000" uuid="a7992aa0-09fc-4445-aaff-a1a206fee1d7"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="227" y="22" width="326" height="1" uuid="34950643-b791-4385-9612-9fd5ff2f14a1"/>
+			</line>
+			<frame>
+				<reportElement x="71" y="2" width="480" height="20" uuid="2f91c6fe-d3db-49dc-a95a-ed4d557af254"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="175" y="0" width="66" height="18" uuid="e6d42363-35f4-4818-b128-79160bab47b8"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TelefonoCln}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="390" y="0" width="90" height="18" uuid="fbd64ed9-6144-4972-b2ef-a8d7e64b0806"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NIT}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="312" y="2" width="138" height="18" uuid="439b796f-e27b-4bd3-a7c5-cca6b7807799"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DireccionCln}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="4" y="2" width="100" height="18" uuid="7d40696e-c775-4091-b91e-3595786c117e"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TipoCln}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="113" y="2" width="114" height="18" uuid="ba7e3c05-c645-4fdc-bbe2-48c1614577dc"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NombreCln}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="879878aa-29ec-4343-9c3e-1ad2df687a62"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#006699" uuid="07cc6180-514e-43d1-b01c-13d84252db8e"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF" uuid="f7ba8f2c-e3ff-4601-8b39-38785f923c1b"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF" uuid="bc130c27-5168-4eac-b588-262e35fc764e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="eb0f9062-f607-4f8d-a3cd-35e56572b600"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
